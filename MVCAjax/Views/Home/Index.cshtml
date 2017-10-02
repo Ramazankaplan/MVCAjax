@@ -1,0 +1,37 @@
+﻿<h1>Anasayfa</h1>
+
+<div class="ornek">
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    $.ajax({
+        url: "/Home/Ornek",
+        success: function (gelenSeyler) {
+            $(".ornek").text(gelenSeyler);
+
+        }
+    });
+</script>
+
+<div class="jsonOrnek">
+
+</div>
+<script>
+
+    $.ajax({
+        url: "/Home/OrnekJson",
+        method: "Get",
+        success: function (gelenjson) {
+
+            $(".jsonOrnek").text(gelenjson.status + "----------" + gelenjson.data);
+
+
+        },
+        error: function () {
+            alert("sayfaya baglanamadı");
+        }
+        });
+</script>
